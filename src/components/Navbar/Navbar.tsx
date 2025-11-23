@@ -2,6 +2,7 @@ import React from 'react';
 import type { MenuProps } from 'antd';
 import { Col, ConfigProvider, Flex, Menu, Row, Space, Typography } from 'antd';
 import { createStyles } from 'antd-style';
+import { useNavigate } from 'react-router-dom';
 
 const { Title, Paragraph } = Typography;
 
@@ -53,7 +54,11 @@ const MenuItem = ({ title, description }: { title: string; description: string }
 const menuItems = [
     {
         key: 'home',
-        label: 'Home',
+        label: 'Home'
+    },
+        {
+        key: 'test',
+        label: 'Test'
     },
     {
         key: 'features',
@@ -93,6 +98,7 @@ const menuItems = [
 
 function Navbar() {
     const { styles } = useStyles();
+    const navigate = useNavigate();
 
     const popupRender: MenuProps['popupRender'] = (_, { item }) => {
         return (
@@ -100,6 +106,7 @@ function Navbar() {
                 <Typography.Title level={3} className={styles.leadingHeader}>
                     {item.title}
                 </Typography.Title>
+
                 <Row gutter={16}>
                     {React.Children.map(item.children as React.ReactNode, (child) => {
                         if (!React.isValidElement(child)) {
@@ -114,6 +121,14 @@ function Navbar() {
                 </Row>
             </Flex>
         );
+    };
+
+    const handleMenuClick: MenuProps['onClick'] = (e) => {
+        if (e.key === 'home') {
+            navigate('/');
+        } else if (e.key === 'test') {
+            navigate('/test');
+        }
     };
 
     return (
@@ -132,7 +147,12 @@ function Navbar() {
                 },
             }}
         >
-            <Menu mode="horizontal" items={menuItems} popupRender={popupRender} />
+            <Menu
+                mode="horizontal"
+                items={menuItems}
+                popupRender={popupRender}
+                onClick={handleMenuClick}
+            />
         </ConfigProvider>
     );
 }
