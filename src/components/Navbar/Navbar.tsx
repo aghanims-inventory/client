@@ -136,9 +136,11 @@ function Navbar() {
             theme={{
                 components: {
                     Menu: {
-                        popupBg: '#fff',
-                        horizontalItemSelectedColor: '#1677ff',
-                        horizontalItemHoverColor: '#1677ff',
+                        darkItemBg: '#302f30ff',
+                        darkItemColor: '#fdfdfdff',
+                        darkItemHoverBg: '#616161ff',
+                        darkItemSelectedBg: '#302f30ff',
+                        darkItemSelectedColor: '#fdfdfdff',
                     },
                     Typography: {
                         titleMarginBottom: 0,
@@ -152,6 +154,7 @@ function Navbar() {
                 items={menuItems}
                 popupRender={popupRender}
                 onClick={handleMenuClick}
+                theme='dark'
             />
         </ConfigProvider>
     );
