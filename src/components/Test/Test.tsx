@@ -2,7 +2,9 @@
 function Test() {
   return (
     <>
-        Test page
+      <div className="component">
+          Test page
+      </div>
     </>
   )
 }

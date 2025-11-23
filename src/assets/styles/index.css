@@ -20,6 +20,10 @@ html, body, #root {
   padding: 0;
 }
 
+.component {
+  padding: 10px;
+}
+
 /* a {
   font-weight: 500;
   color: #646cff;

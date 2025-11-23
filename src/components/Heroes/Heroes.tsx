@@ -1,8 +1,9 @@
-
 function Heroes() {
   return (
     <>
-        Heroes Page
+        <div className="component">
+            Heroes Page
+        </div>
     </>
   )
 }

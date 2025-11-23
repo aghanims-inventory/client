@@ -7,6 +7,7 @@ import Navbar from './components/Navbar/Navbar.tsx'
 import Test from './components/Test/Test.tsx'
 import Heroes from './components/Heroes/Heroes.tsx'
 import NotFound from './components/NotFound/NotFound.tsx'
+import Footer from './components/Footer/Footer.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')!).render(
 
         <Route path="/*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   </StrictMode>,
 )
