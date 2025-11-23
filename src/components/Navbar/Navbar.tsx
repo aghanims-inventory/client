@@ -56,7 +56,11 @@ const menuItems = [
         key: 'home',
         label: 'Home'
     },
-        {
+    {
+        key: 'heroes',
+        label: 'Heroes'
+    },
+    {
         key: 'test',
         label: 'Test'
     },
@@ -124,10 +128,17 @@ function Navbar() {
     };
 
     const handleMenuClick: MenuProps['onClick'] = (e) => {
-        if (e.key === 'home') {
-            navigate('/');
-        } else if (e.key === 'test') {
-            navigate('/test');
+        switch (e.key)
+        {
+            case 'home':
+                navigate('/'); break;
+            case 'heroes':
+                navigate('/heroes'); break;
+            case 'test':
+                navigate('/test'); break;
+
+            default:
+                break;
         }
     };
 
