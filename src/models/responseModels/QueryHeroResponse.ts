@@ -4,4 +4,8 @@ export default interface QueryHeroResponse {
     displayName: string;
     iconUrl: string | null;
     imageUrl: string | null;
+    attributeId: number;
+    attackTypeId: number;
+    formattedAttribute: string;
+    formattedAttackType: string;
 }
