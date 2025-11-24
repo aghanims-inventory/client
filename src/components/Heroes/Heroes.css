@@ -1,0 +1,22 @@
+.attributes {
+    display: block;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+/* .heroes {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+} */
+
+.heroes {
+    display: grid;
+    /* grid-template-columns: repeat(10, 1fr); */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 15px 10px 15px 10px;
+    margin-bottom: 35px;
+    justify-items: center;
+}
