@@ -1,4 +1,5 @@
 import axios, { type AxiosInstance, type AxiosRequestConfig } from 'axios';
+import type ProxyResponse from '../models/responseModels/ProxyResponse';
 
 class ApiClient {
   private client: AxiosInstance;
@@ -13,14 +14,14 @@ class ApiClient {
     });
   }
 
-  public async Get<ProxyResponse>(url: string, config?: AxiosRequestConfig): Promise<ProxyResponse> {
-    const response = await this.client.get<ProxyResponse>(url, config);
+  public async get<T>(url: string, config?: AxiosRequestConfig): Promise<ProxyResponse<T>> {
+    const response = await this.client.get<ProxyResponse<T>>(url, config);
 
     return response.data;
   }
 
-  public async Post<ProxyResponse>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<ProxyResponse> {
-    const response = await this.client.post<ProxyResponse>(url, data, config);
+  public async post<T>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<ProxyResponse<T>> {
+    const response = await this.client.post<ProxyResponse<T>>(url, data, config);
 
     return response.data;
   }
