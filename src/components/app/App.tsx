@@ -1,10 +1,15 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from '../../assets/icons/react.svg'
 import viteLogo from '/vite.svg'
+import AppConstants from '../../utils/AppConstants';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  useEffect(() => {
+    document.title = AppConstants.PROJECT_NAME;
+  }, []);
+
+  const [count, setCount] = useState(0);
 
   return (
     <>
