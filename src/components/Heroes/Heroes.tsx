@@ -92,8 +92,16 @@ function Heroes() {
                             <div className="heroes">
                                 {
                                     heroes.filter(hero => hero.attributeId === element.id).map(filteredHero => (
-                                        <div key={filteredHero.id}>
-                                            {filteredHero.displayName}
+                                        <div
+                                            key={filteredHero.id}
+                                            className="hero__card"
+                                            style={{
+                                                backgroundImage: `url(${filteredHero.imageUrl})`
+                                            }}
+                                        >
+                                            <div className="hero__name">
+                                                {filteredHero.displayName}
+                                            </div>
                                         </div>
                                     ))
                                 }

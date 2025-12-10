@@ -20,3 +20,32 @@
     margin-bottom: 35px;
     justify-items: center;
 }
+
+.hero__card {
+
+    width: 150px;
+    height: 80px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.hero__card:hover {
+    transform: scale(1.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.hero__card:hover .hero__name {
+    opacity: 1;
+    transition: opacity 0.5s ease 0.1s;
+}
+
+.hero__name {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 52px;
+    opacity: 0;
+}
