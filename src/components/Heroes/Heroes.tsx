@@ -39,8 +39,10 @@ function Heroes() {
   return (
     <>
         <div className="component">
-            Heroes Page
-
+            <div className="title">
+                Heroes
+            </div>
+            
             <div>
                 {
                     filters?.attributeTypes?.map(element => (
