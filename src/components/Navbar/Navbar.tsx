@@ -5,7 +5,7 @@ import { Col, ConfigProvider, Flex, Menu, Row, Space, Typography } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
-const { Title, Paragraph } = Typography;
+const { Title } = Typography;
 
 // const useStyles = createStyles(({ token }) => ({
 //     navigationPopup: {
@@ -36,7 +36,7 @@ const { Title, Paragraph } = Typography;
 //     },
 // }));
 
-const MenuItem = ({ title, description }: { title: string; description: string }) => {
+const MenuItem = ({ title }: { title: string; }) => {
     return (
         <div className="menu-item">
             <Space vertical size={4} className="menu-item-space">
@@ -44,11 +44,11 @@ const MenuItem = ({ title, description }: { title: string; description: string }
                     {title}
                 </Title>
 
-                <div className="menu-item-description">
+                {/* <div className="menu-item-description">
                     <Paragraph type="secondary" className="margin-less">
                         {description}
                     </Paragraph>
-                </div>
+                </div> */}
             </Space>
         </div>
     );
@@ -74,16 +74,16 @@ const menuItems = [
             {
                 key: 'getting-started',
                 label: (
-                    <MenuItem title="Getting Started" description="Quick start guide and learn the basics." />
+                    <MenuItem title="Getting Started" />
                 ),
             },
             {
                 key: 'components',
-                label: <MenuItem title="Components" description="Explore our component library." />,
+                label: <MenuItem title="Components" />,
             },
             {
                 key: 'templates',
-                label: <MenuItem title="Templates" description="Ready-to-use template designs." />,
+                label: <MenuItem title="Templates" />,
             },
         ],
     },
@@ -93,11 +93,11 @@ const menuItems = [
         children: [
             {
                 key: 'blog',
-                label: <MenuItem title="Blog" description="Latest updates and articles." />,
+                label: <MenuItem title="Blog" />,
             },
             {
                 key: 'community',
-                label: <MenuItem title="Community" description="Join our developer community." />,
+                label: <MenuItem title="Community" />,
             },
         ],
     },
