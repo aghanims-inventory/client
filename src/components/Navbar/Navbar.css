@@ -1,0 +1,37 @@
+.header-container {
+  width: 100%;
+  padding: 16px 0 0 0;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+}
+
+.header-content {
+  max-width: 700px;
+  width: 100%;
+  padding: 0 24px;
+}
+
+.header-menu {
+  border-radius: 8px;
+  border: 1px solid #2f2f2f;
+  line-height: 48px;
+  justify-content: center;
+}
+
+.header-menu .ant-menu-item:hover,
+.header-menu .ant-menu-submenu:hover {
+  background-color: #616161ff !important;
+}
+
+.header-menu .ant-menu-item:focus-visible,
+.header-menu .ant-menu-submenu:focus-visible {
+  background-color: #616161ff !important;
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.header-menu .ant-menu-item-selected,
+.header-menu .ant-menu-submenu-selected  {
+  font-weight: bold !important;
+}

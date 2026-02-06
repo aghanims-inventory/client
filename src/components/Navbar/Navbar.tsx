@@ -3,6 +3,7 @@ import type { MenuProps } from 'antd';
 import { Col, ConfigProvider, Flex, Menu, Row, Space, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import { useNavigate } from 'react-router-dom';
+import './Navbar.css';
 
 const { Title, Paragraph } = Typography;
 
@@ -160,13 +161,18 @@ function Navbar() {
                 },
             }}
         >
-            <Menu
-                mode="horizontal"
-                items={menuItems}
-                popupRender={popupRender}
-                onClick={handleMenuClick}
-                theme='dark'
-            />
+            <div className="header-container">
+                <div className="header-content">
+                    <Menu
+                        mode="horizontal"
+                        items={menuItems}
+                        popupRender={popupRender}
+                        onClick={handleMenuClick}
+                        theme='dark'
+                        className="header-menu"
+                    />
+                </div>
+            </div>
         </ConfigProvider>
     );
 }
