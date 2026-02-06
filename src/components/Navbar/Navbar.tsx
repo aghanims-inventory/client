@@ -1,52 +1,54 @@
 import React from 'react';
 import type { MenuProps } from 'antd';
 import { Col, ConfigProvider, Flex, Menu, Row, Space, Typography } from 'antd';
-import { createStyles } from 'antd-style';
+// import { createStyles } from 'antd-style';
 import { useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
 const { Title, Paragraph } = Typography;
 
-const useStyles = createStyles(({ token }) => ({
-    navigationPopup: {
-        padding: token.padding,
-        minWidth: 480,
-        background: token.colorBgElevated,
-        borderRadius: token.borderRadiusLG,
-        boxShadow: token.boxShadowSecondary,
-    },
-    menuItem: {
-        borderRadius: token.borderRadius,
-        transition: `all ${token.motionDurationSlow}`,
-        cursor: 'pointer',
-        '&:hover': {
-            background: 'rgba(0, 0, 0, 0.02)',
-        },
-    },
-    menuItemSpace: {
-        padding: token.paddingSM,
-    },
-    leadingHeader: {
-        margin: '0 !important',
-        paddingBottom: token.paddingXS,
-        borderBottom: `1px solid ${token.colorSplit}`,
-    },
-    marginLess: {
-        margin: '0 !important',
-    },
-}));
+// const useStyles = createStyles(({ token }) => ({
+//     navigationPopup: {
+//         padding: token.padding,
+//         maxWidth: 480,
+//         background: token.colorBgElevated,
+//         borderRadius: token.borderRadiusLG,
+//         boxShadow: token.boxShadowSecondary,
+//     },
+//     menuItem: {
+//         borderRadius: token.borderRadius,
+//         transition: `all ${token.motionDurationSlow}`,
+//         cursor: 'pointer',
+//         '&:hover': {
+//             background: 'rgba(0, 0, 0, 0.02)',
+//         },
+//     },
+//     menuItemSpace: {
+//         padding: token.paddingSM,
+//     },
+//     leadingHeader: {
+//         margin: '0 !important',
+//         paddingBottom: token.paddingXS,
+//         borderBottom: `1px solid ${token.colorSplit}`,
+//     },
+//     marginLess: {
+//         margin: '0 !important',
+//     },
+// }));
 
 const MenuItem = ({ title, description }: { title: string; description: string }) => {
-    const { styles } = useStyles();
     return (
-        <div className={styles.menuItem}>
-            <Space vertical size={4} className={styles.menuItemSpace}>
-                <Title level={5} className={styles.marginLess}>
+        <div className="menu-item">
+            <Space vertical size={4} className="menu-item-space">
+                <Title level={5} className="margin-less">
                     {title}
                 </Title>
-                <Paragraph type="secondary" className={styles.marginLess}>
-                    {description}
-                </Paragraph>
+
+                <div className="menu-item-description">
+                    <Paragraph type="secondary" className="margin-less">
+                        {description}
+                    </Paragraph>
+                </div>
             </Space>
         </div>
     );
@@ -102,13 +104,12 @@ const menuItems = [
 ];
 
 function Navbar() {
-    const { styles } = useStyles();
     const navigate = useNavigate();
 
     const popupRender: MenuProps['popupRender'] = (_, { item }) => {
         return (
-            <Flex className={styles.navigationPopup} vertical gap="middle">
-                <Typography.Title level={3} className={styles.leadingHeader}>
+            <Flex className="navigation-popup" vertical gap="middle">
+                <Typography.Title level={3} className="leading-header">
                     {item.title}
                 </Typography.Title>
 
