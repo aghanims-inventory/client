@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react'
 import reactLogo from '../../assets/icons/react.svg'
 import viteLogo from '/vite.svg'
 import AppConstants from '../../utils/AppConstants';
-import './App.css'
+import './Home.css'
 
-function App() {
+function Home() {
   useEffect(() => {
     document.title = AppConstants.PROJECT_NAME;
   }, []);
@@ -39,4 +39,4 @@ function App() {
   )
 }
 
-export default App
+export default Home
