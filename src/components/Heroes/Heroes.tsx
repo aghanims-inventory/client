@@ -1,39 +1,14 @@
-import { useEffect, useState } from "react"
-import ApiClient from "../../utils/ApiClient";
+import { useEffect } from "react"
 import AppConstants from "../../utils/AppConstants";
-import type QueryHeroResponse from "../../models/responseModels/QueryHeroResponse";
-import type GetHeroPageFilterResponse from "../../models/responseModels/GetHeroPageFilterResponse";
+import { useGetPageFiltersQuery, useGetHeroesQuery } from "../../store/api/heroesApi";
 import "./Heroes.css";
 
-const apiClient = new ApiClient();
-
 function Heroes() {
-    const [filters, setFilters] = useState<GetHeroPageFilterResponse | null>(null);
-    const [heroes, setHeroes] = useState<QueryHeroResponse[]>([]);
-
-    async function getPageFilters(): Promise<void> {
-        const filters = await apiClient.get<GetHeroPageFilterResponse>("v1/heroes/filters");
-
-        setFilters(filters?.data);
-    }
-
-    async function getHeroes(): Promise<void> {
-        const heroes = await apiClient.get<QueryHeroResponse[]>("v1/heroes");
-
-        setHeroes(heroes?.data || []);
-    }
+    const { data: filters } = useGetPageFiltersQuery();
+    const { data: heroes = [] } = useGetHeroesQuery();
 
     useEffect(() => {
         document.title = `Heroes - ${AppConstants.PROJECT_NAME}`;
-
-        const fetchInitialData = async () => {
-            await Promise.all([
-                getPageFilters(),
-                getHeroes()
-            ]);
-        };
-
-        fetchInitialData();
     }, [])
 
   return (
@@ -89,7 +64,7 @@ function Heroes() {
                 {
                     filters?.attributeTypes?.map(element => (
                         <div key={element.id} className="attributes">
-                            
+
                             <div className="hero-attribute-divider">
                                 {element.name}
                             </div>
