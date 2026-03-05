@@ -89,19 +89,22 @@ function Heroes() {
                 {
                     filters?.attributeTypes?.map(element => (
                         <div key={element.id} className="attributes">
-                            {element.name}
+                            
+                            <div className="hero-attribute-divider">
+                                {element.name}
+                            </div>
 
                             <div className="heroes">
                                 {
                                     heroes.filter(hero => hero.attributeId === element.id).map(filteredHero => (
                                         <div
                                             key={filteredHero.id}
-                                            className="hero__card"
+                                            className="hero-card"
                                             style={{
                                                 backgroundImage: `url(${filteredHero.imageUrl})`
                                             }}
                                         >
-                                            <div className="hero__name">
+                                            <div className="hero-name">
                                                 {filteredHero.displayName}
                                             </div>
                                         </div>
