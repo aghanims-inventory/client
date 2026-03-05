@@ -1,11 +1,12 @@
 import { useEffect } from "react"
 import AppConstants from "../../utils/AppConstants";
-import { useGetPageFiltersQuery, useGetHeroesQuery } from "../../store/api/heroesApi";
+import { useGetPageFiltersQuery, useQueryHeroesQuery } from "../../store/api/heroesApi";
 import "./Heroes.css";
+import { Link } from "react-router";
 
 function Heroes() {
     const { data: filters } = useGetPageFiltersQuery();
-    const { data: heroes = [] } = useGetHeroesQuery();
+    const { data: heroes = [] } = useQueryHeroesQuery();
 
     useEffect(() => {
         document.title = `Heroes - ${AppConstants.PROJECT_NAME}`;
@@ -72,17 +73,18 @@ function Heroes() {
                             <div className="heroes">
                                 {
                                     heroes.filter(hero => hero.attributeId === element.id).map(filteredHero => (
-                                        <div
-                                            key={filteredHero.id}
-                                            className="hero-card"
-                                            style={{
-                                                backgroundImage: `url(${filteredHero.imageUrl})`
-                                            }}
-                                        >
-                                            <div className="hero-name">
-                                                {filteredHero.displayName}
-                                            </div>
-                                        </div>
+                                        <Link
+                                                key={filteredHero.id}
+                                                to={`/heroes/${filteredHero.id}`}
+                                                className="hero-card"
+                                                style={{
+                                                    backgroundImage: `url(${filteredHero.imageUrl})`
+                                                }}
+                                            >
+                                                <div className="hero-name">
+                                                    {filteredHero.displayName}
+                                                </div>
+                                        </Link>
                                     ))
                                 }
                             </div>

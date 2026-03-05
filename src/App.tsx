@@ -6,6 +6,7 @@ import Heroes from './components/Heroes/Heroes.tsx'
 import NotFound from './components/NotFound/NotFound.tsx'
 import { ConfigProvider, theme } from 'antd'
 import Home from './components/Home/Home.tsx'
+import Hero from './components/Hero/Hero.tsx'
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/heroes" element={<Heroes />} />
               <Route path="/test" element={<Test />} />
+              <Route path="/heroes/:id" element={<Hero />} />
 
               <Route path="/*" element={<NotFound />} />
             </Routes>
