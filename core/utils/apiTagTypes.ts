@@ -1,5 +1,3 @@
-enum apiTagTypes {
+export enum ApiTagTypes {
     Heroes = "Heroes"
 }
-
-export default apiTagTypes;
