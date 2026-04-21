@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Heroes Page</h1>
+      <h1 className="text-xl mb-4">Heroes Page</h1>
       
       <ul className="list-disc pl-5">
         {data?.data?.map((hero: QueryHeroesResponse) => (
